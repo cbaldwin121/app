@@ -7,11 +7,11 @@ import { Camera } from '@ionic-native/camera/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AuthModule } from './auth/auth.module';
+import { AuthModule } from './service/auth/auth.module';
 import { File } from '@ionic-native/File/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { FilePath } from '@ionic-native/file-path/ngx';
- 
+
 import { IonicStorageModule } from '@ionic/storage';
 //We also make use of the Ionic Storage not to store the files but the path to a file later on
 
@@ -19,8 +19,8 @@ import { IonicStorageModule } from '@ionic/storage';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, 
-    HttpClientModule, 
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
+    HttpClientModule,
     AuthModule,
     IonicStorageModule.forRoot()
     ],

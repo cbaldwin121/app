@@ -20,6 +20,7 @@ export class Tab4Page implements OnInit, OnDestroy{
   ngOnInit() {
     this.auth.loadTokenFromStorage();
     this.authObserver = this.auth.addActionListener((action) => this.onAction(action));
+    this.getUserInfo();
   }
 
   ngOnDestroy() {
@@ -48,6 +49,7 @@ export class Tab4Page implements OnInit, OnDestroy{
 
   public async getUserInfo(): Promise<void> {
     this.auth.loadUserInfo();
+    this.userInfo;
   }
 
   public async refreshToken(): Promise<void> {
