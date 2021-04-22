@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-artanalysis-dev-220316-authRole",
+      "UnauthRoleArn": "arn:aws:iam::174185055095:role/amplify-artanalysis-dev-220316-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::174185055095:role/amplify-artanalysis-dev-220316-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-artanalysis-dev-220316-deployment",
+      "UnauthRoleName": "amplify-artanalysis-dev-220316-unauthRole",
+      "StackName": "amplify-artanalysis-dev-220316",
+      "StackId": "arn:aws:cloudformation:us-east-1:174185055095:stack/amplify-artanalysis-dev-220316/e9821c60-a30e-11eb-9ec8-0e7b928af6d7",
+      "AmplifyAppId": "d21652chscp0tj"
+    },
+    "categories": {
+      "auth": {
+        "artanalysis242df985": {}
+      }
+    }
+  }
+}
