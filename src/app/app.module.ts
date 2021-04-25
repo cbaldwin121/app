@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
-
+import { StatusBar } from '@ionic-native/status-bar/ngx'
+import { SplashScreen } from '@ionic-native/splash-screen/ngx'
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { Camera } from '@ionic-native/camera/ngx';
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +21,8 @@ import { IonicStorageModule } from '@ionic/storage';
 import { AmplifyUIAngularModule } from '@aws-amplify/ui-angular';
 import Amplify from 'aws-amplify';
 import awsconfig from '../aws-exports';
+import { LoginPage } from './login/login.page'
+import { OAuthService } from 'angular-oauth2-oidc';
 
 
 /* Configure Amplify resources */
@@ -27,20 +30,23 @@ Amplify.configure(awsconfig);
 
 @NgModule({
   declarations: [AppComponent],
-  entryComponents: [],
+  entryComponents: [LoginPage],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
     HttpClientModule,
-    AuthModule,
     AmplifyUIAngularModule,
     BrowserModule,
-    LoginPageModule,
     OAuthModule.forRoot(),
-    IonicStorageModule.forRoot()
+    AuthModule,
+    LoginPageModule
     ],
   providers: [
     Camera,
     File,
+    SplashScreen,
     WebView,
+    OAuthService,
+    StatusBar,
+    AuthModule,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

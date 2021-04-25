@@ -3,14 +3,14 @@ import { Platform } from '@ionic/angular';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { AuthModule } from './auth/auth.module';
+import { AuthModule } from './service/auth/auth.module';
 
 describe('AppComponent', () => {
 
   let platformReadySpy, platformIsSpy, platformSpy;
 
   beforeEach(async(() => {
-    
+
     platformReadySpy = Promise.resolve();
     platformIsSpy = Promise.resolve();
     platformSpy = jasmine.createSpyObj('Platform', { ready: platformReadySpy, is: platformIsSpy });

@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 
-import { TabsPage } from './tabs/tabs.page';
-import { OAuthService } from 'angular-oauth2-oidc';
-import { LoginPage } from './login/login.page';
+import { Platform } from '@ionic/angular';
+
+import { Plugins } from '@capacitor/core';
+
+const { SplashScreen } = Plugins;
 
 import { AuthObserver } from 'ionic-appauth';
 
@@ -14,19 +13,20 @@ import { AuthObserver } from 'ionic-appauth';
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
-  rootPage: any = TabsPage;
+  authObserver: AuthObserver;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
-    oauthService: OAuthService) {
-    if (oauthService.hasValidIdToken()) {
-      this.rootPage = TabsPage;
-    } else {
-    this.rootPage = LoginPage;
-    }
+  constructor(
+    private platform: Platform,
+  ) {
+    this.initializeApp();
+  }
 
-    platform.ready().then(() => {
-    statusBar.styleDefault();
-    splashScreen.hide();
+  initializeApp() {
+    this.platform.ready().then(() => {
+      if (this.platform.is('mobile') && !this.platform.is('mobileweb')) {
+        SplashScreen.hide();
+      }
+      
     });
   }
 }

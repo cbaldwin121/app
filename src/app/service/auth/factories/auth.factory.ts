@@ -14,8 +14,8 @@ export const authFactory = (platform: Platform, ngZone: NgZone,
 
   if (platform.is('mobile') && !platform.is('mobileweb')) {
     environment.oidcConfig.scopes += ' offline_access';
-    environment.oidcConfig.redirect_url = 'com.okta.dev-33168249:/callback';
-    environment.oidcConfig.end_session_redirect_url = 'com.okta.dev-33168249:/logout';
+    environment.oidcConfig.redirect_url = '.okta.dev-33168249:/callback';
+    environment.oidcConfig.end_session_redirect_url = '.okta.dev-33168249:/logout';
   }
   authService.authConfig = environment.oidcConfig;
 

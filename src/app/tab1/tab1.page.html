@@ -18,7 +18,30 @@
       <ion-button margin-top (click)="signIn()" *ngIf="!action">Login</ion-button>
     </ion-card-content>
   </ion-card>
+  <ion-card *ngIf="action">
+    <ion-card-header>
+      <ion-button (click)="getUserInfo()">Get User Details</ion-button>
+      <!--<ion-button (click)="refreshToken()">Refresh Token</ion-button>-->
+      <ion-button (click)="signOut()">Sign Out</ion-button>
+    </ion-card-header>
 
+    <ion-card *ngIf="userInfo">
+      <ion-card-header>
+        User Info
+      </ion-card-header>
+      <ion-card-content>
+        {{userInfo | json}}
+      </ion-card-content>
+    </ion-card>
+    <ion-card *ngIf="action">
+      <ion-card-header>
+        Action Data
+      </ion-card-header>
+      <ion-card-content>
+        {{action | json}}
+      </ion-card-content>
+    </ion-card>
+  </ion-card>
   <ion-list lines="none">
     <ion-list-header>
       <ion-label>Resources</ion-label>

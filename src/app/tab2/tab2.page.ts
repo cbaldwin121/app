@@ -7,6 +7,7 @@ import { Storage } from '@ionic/storage';
 import { FilePath } from '@ionic-native/file-path/ngx';
 import { ActionSheetController, ToastController, Platform, LoadingController } from '@ionic/angular';
 import { finalize } from 'rxjs/operators';
+
 import { Auth } from 'aws-amplify'
 import { CognitoUser } from '@aws-amplify/auth'
 import { UserService } from '../service/user.service';

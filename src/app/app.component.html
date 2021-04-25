@@ -1,8 +1,6 @@
-<template>
-  <amplify-authenticator>
-    <div>
-      My App
-      <amplify-sign-out></amplify-sign-out>
-    </div>
-  </amplify-authenticator>
-</template>
+<button routerLink="/"> Home </button>
+<button *ngIf="!isAuthenticated" (click)="oktaAuth.login('/')"> Login </button>
+<button *ngIf="isAuthenticated" (click)="oktaAuth.logout()"> Logout </button>
+<button routerLink="/protected"> Protected </button>
+
+<router-outlet></router-outlet>
