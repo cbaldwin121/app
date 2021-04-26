@@ -19,7 +19,7 @@ import { IonicStorageModule } from '@ionic/storage';
 
 /* Add Amplify imports */
 import { AmplifyUIAngularModule } from '@aws-amplify/ui-angular';
-import Amplify from 'aws-amplify';
+import Amplify, { Storage } from 'aws-amplify';
 import awsconfig from '../aws-exports';
 import { LoginPage } from './login/login.page'
 import { OAuthService } from 'angular-oauth2-oidc';
