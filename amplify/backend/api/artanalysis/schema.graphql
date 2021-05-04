@@ -1,20 +1,20 @@
-type Blog @model {
+type Album @model {
   id: ID!
   name: String!
-  posts: [Post] @connection(keyName: "byBlog", fields: ["id"])
+  owner: String!
+  photos: [Photo] @connection(name: "AlbumPhotos")
 }
 
-type Post @model @key(name: "byBlog", fields: ["blogID"]) {
+type Photo @model {
   id: ID!
-  title: String!
-  blogID: ID!
-  blog: Blog @connection(fields: ["blogID"])
-  comments: [Comment] @connection(keyName: "byPost", fields: ["id"])
+  album: Album @connection(name: "AlbumPhotos")
+  bucket: String!
+  fullsize: PhotoS3Info!
+  thumbnail: PhotoS3Info!
 }
 
-type Comment @model @key(name: "byPost", fields: ["postID", "content"]) {
-  id: ID!
-  postID: ID!
-  post: Post @connection(fields: ["postID"])
-  content: String!
+type PhotoS3Info {
+    key: String!
+    width: Int!
+    height: Int!
 }
