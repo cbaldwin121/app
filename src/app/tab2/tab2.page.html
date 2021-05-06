@@ -28,16 +28,18 @@
   -->
   <ion-grid>
     <ion-row>
-    <ion-col size="6"
+    <ion-col size="10"
       *ngFor="let photo of photoService.photos; index as position">
         <ion-img [src]="photo.webviewPath"></ion-img>
     </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
-  <h3 text-center>Add description of photo here *** there will display photo (don't store until upload post is selected)</h3>
 
-</ion-content>
+<ion-item>
+  <ion-label floating>Description</ion-label>
+  <ion-input type="text" [(ngModel)]="photoDescription"></ion-input>
+</ion-item>
 
 <ion-footer>
   <ion-toolbar color="primary">

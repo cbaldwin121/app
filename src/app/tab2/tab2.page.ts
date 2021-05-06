@@ -1,3 +1,4 @@
+
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Camera, CameraOptions, PictureSourceType } from '@ionic-native/camera/ngx';
 import { File, FileEntry } from '@ionic-native/File/ngx';
@@ -22,15 +23,30 @@ const STORAGE_KEY = 'my_images';
 
 //This array will only contain the name of a file like “1234.png”,
 //so for each entry we need to resolve the name to the local path of our app which we add to the object as filePath.
+//export class imgPost
+//{
+//  img: string;
+//  description: string
+//}
 
 export class Tab2Page{
   constructor(public photoService: PhotoService) { }
 
+  public photoDescription: string;
+  //public postList: Array<imgPost> = [];
+
   addPhotoToGallery() {
-    this.photoService.addNewToGallery();
+    return this.photoService.addNewToGallery();
   }
 
-  uploadPost(){
-    //do nothing right now but should make a service that takes img and description and connects with graphql to store post so you can display
+  async uploadPost(){
+
+  //  const img = this.addPhotoToGallery();
+
+  //  let newPost = new imgPost();
+  //  //newPost.img =
+
+  //  this.photoService.savePost(await img, this.photoDescription)
+  //  //do nohis.photoServicething right now but should make a service that takes img and description and connects with graphql to store post so you can display
   }
 }
