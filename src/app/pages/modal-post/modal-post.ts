@@ -18,8 +18,9 @@ export class ModalPost {
     this.modal_data = { // Getting data from previous page
       id: this.navParams.get('user_id'),
       username: this.navParams.get('username'),
-      profile_img: this.navParams.get('profile_img'),
-      post_img: this.navParams.get('post_img')
+      post_img: this.navParams.get('post_img'),
+      photoDescription: this.navParams.get('description'),
+      child_name: this.navParams.get('child_name')
     };
   }
 
@@ -43,5 +44,5 @@ export class ModalPost {
   goUserProfile(userId: number) {
     console.log("User id: " + userId);
   }
-  
+
 }

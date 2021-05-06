@@ -1,4 +1,4 @@
-import { AuthModule } from './../service/auth/auth.module';
+import { AuthModule } from '../../service/auth/auth.module';
 import { IonicModule, ModalController } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';

@@ -20,6 +20,8 @@ export class Tab4Page implements OnInit, OnDestroy{
   authObserver: AuthObserver;
   nav: any;
 
+
+
   constructor(private auth: AuthService, public modalCtrl: ModalController) {
   }
 
@@ -45,22 +47,6 @@ export class Tab4Page implements OnInit, OnDestroy{
 
   goOptions() {
     this.nav.push(Options, {});
-  }
-
-
-  // Triggers when user pressed a post
-  pressPhoto(user_id: number, username: string, profile_img: string, post_img: string) {
-    this.presentModal(user_id, username, profile_img, post_img);
-  }
-
-  // Set post modal
-  presentModal(user_id: number, username: string, profile_img: string, post_img: string) {
-    let modal = this.modalCtrl.create(ModalPost,
-    { // Send data to modal
-      user_id: user_id,
-    }, // This data comes from API!
-    { showBackdrop: true, enableBackdropDismiss: true });
-    modal.present();
   }
 
   ngOnInit() {

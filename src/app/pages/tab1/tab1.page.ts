@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { AuthActions, AuthObserver, AuthService, IAuthAction } from 'ionic-appauth';
-import { PhotoService } from '../service/photo.service';
+import { PhotoService } from '../../service/photo.service';
 
 @Component({
   selector: 'app-tab1',
