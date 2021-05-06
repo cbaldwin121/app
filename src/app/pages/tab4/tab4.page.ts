@@ -39,11 +39,11 @@ export class Tab4Page implements OnInit, OnDestroy{
     this.profile_segment = 'grid';
   }
 
-  goEditProfile() {
+  //goEditProfile() {
     // Open it as a modal page
-    let modal = this.modalCtrl.create(EditProfile);
-    modal.present();
-  }
+  //  let modal = this.modalCtrl.create(EditProfile);
+  //  modal.present();
+  //}
 
   goOptions() {
     this.nav.push(Options, {});

@@ -3,10 +3,13 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 
 const routes: Routes = [
-  { path: '', loadChildren: './tabs/tabs.module#TabsPageModule'},
-  { path: 'callback', loadChildren: './service/auth/auth-callback/auth-callback.module#AuthCallbackPageModule' },
-  { path: 'logout', loadChildren: './service/auth/end-session/end-session.module#EndSessionPageModule' },
-  { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
+
+
+  { path: '', loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)},
+  { path: 'callback', loadChildren: () => import('./service/auth/auth-callback/auth-callback.module').then( m => m.AuthCallbackPageModule)},
+  { path: 'logout', loadChildren: () => import('./service/auth/end-session/end-session.module').then( m => m.EndSessionPageModule)},
+  { path: 'logout', loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)},
+
 ];
 @NgModule({
   imports: [
