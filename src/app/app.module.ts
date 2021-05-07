@@ -1,3 +1,4 @@
+import { ModalController } from 'ionic-angular';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -11,7 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthModule } from './service/auth/auth.module';
 import { File } from '@ionic-native/File/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
-import { LoginPageModule } from './login/login.module';
+import { LoginPageModule } from './pages/login/login.module';
 import { OAuthModule } from 'angular-oauth2-oidc';
 
 import { IonicStorageModule } from '@ionic/storage';
@@ -21,15 +22,16 @@ import { IonicStorageModule } from '@ionic/storage';
 import { AmplifyUIAngularModule } from '@aws-amplify/ui-angular';
 import Amplify, { Storage } from 'aws-amplify';
 import awsconfig from '../aws-exports';
-import { LoginPage } from './login/login.page'
+import { LoginPage } from './pages/login/login.page'
 import { OAuthService } from 'angular-oauth2-oidc';
+import { ModalPost } from './pages/modal-post/modal-post';
 
 
 /* Configure Amplify resources */
 Amplify.configure(awsconfig);
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ModalPost],
   entryComponents: [LoginPage],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
     HttpClientModule,
@@ -46,6 +48,7 @@ Amplify.configure(awsconfig);
     WebView,
     OAuthService,
     StatusBar,
+    ModalController,
     AuthModule,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

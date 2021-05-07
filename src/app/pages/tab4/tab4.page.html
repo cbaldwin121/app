@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Child Profile
+    </ion-title>
+  </ion-toolbar>
+
+  <ion-buttons end>
+    <button ion-button icon-only>
+      <ion-icon name="person-add" class="badge-container">
+        <span class="custom-badge">3</span>
+      </ion-icon>
+    </button>
+    <button ion-button icon-only (click)="goOptions()">
+      <ion-icon name="more"></ion-icon>
+    </button>
+  </ion-buttons>
+
+</ion-header>
+
+
+  <ion-card *ngIf="action">
+    <ion-card *ngIf="userInfo">
+      <ion-card-header>
+        User Info
+      </ion-card-header>
+      <ion-card-content>
+        {{userInfo | json}}
+      </ion-card-content>
+
+     <!-- Edit/follow button -->
+  <ion-row no-padding no-margin>
+    <ion-col no-padding no-margin col-4></ion-col>
+      <ion-col no-padding no-margin text-center col-8>
+      <button class="edit-button" (click)="goEditProfile()">Edit your profile</button>
+    </ion-col>
+    <ion-col col-3></ion-col>
+  </ion-row>
+
+    <!-- Profile info -->
+    <!-- <div padding>
+      <p no-margin no-padding><b>Can Delibas</b></p>
+      <p no-padding no-margin class="info">Software developer, open-source lover, invoker spammer & heavy metal guitarist</p>
+      <p no-padding no-margin class="info"><a href="#">hi</a></p>
+    </div> -->
+
+    </ion-card>
+    <ion-card-header>
+      <ion-button (click)="signOut()">Sign Out</ion-button>
+    </ion-card-header>
+  </ion-card>
+
+
+

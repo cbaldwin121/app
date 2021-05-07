@@ -16,6 +16,7 @@
         <ion-icon name="camera"></ion-icon>
       </ion-fab-button>
     </ion-fab>
+  </ion-content>
   <!-- need space between this-- once a photo is taken I think it should generate an ionic card
   Ionic card with allow user to first <ion-card> with the img just taken, then include <ion-card-title> and <ion-card-content>
     and then at the end add a buttom to upload post-- make a service for storage of post
@@ -28,16 +29,22 @@
   -->
   <ion-grid>
     <ion-row>
-    <ion-col size="6"
+    <ion-col size="10"
       *ngFor="let photo of photoService.photos; index as position">
         <ion-img [src]="photo.webviewPath"></ion-img>
     </ion-col>
     </ion-row>
   </ion-grid>
-</ion-content>
-  <h3 text-center>Add description of photo here *** there will display photo (don't store until upload post is selected)</h3>
 
-</ion-content>
+<ion-item>
+  <ion-label floating>Description</ion-label>
+  <ion-input type="text" [(ngModel)]="photoDescription"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label floating>Child's Name</ion-label>
+  <ion-input type="text" [(ngModel)]="child_name"></ion-input>
+</ion-item>
 
 <ion-footer>
   <ion-toolbar color="primary">

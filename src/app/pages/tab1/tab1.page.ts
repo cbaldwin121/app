@@ -1,26 +1,25 @@
-
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { AuthActions, AuthObserver, AuthService, IAuthAction } from 'ionic-appauth';
+import { PhotoService } from '../../service/photo.service';
 
 @Component({
-  selector: 'app-tab4',
-  templateUrl: 'tab4.page.html',
-  styleUrls: ['tab4.page.scss']
+  selector: 'app-tab1',
+  templateUrl: 'tab1.page.html',
+  styleUrls: ['tab1.page.scss']
 })
-export class Tab4Page implements OnInit, OnDestroy{
-
+export class Tab1Page implements OnInit, OnDestroy {
   userInfo = this.auth.session.user;
   action: IAuthAction;
   authObserver: AuthObserver;
 
-  constructor(private navCtrl: NavController, private auth: AuthService) {
+  constructor(private navCtrl: NavController, private auth: AuthService, public photoService: PhotoService) {
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.auth.loadTokenFromStorage();
     this.authObserver = this.auth.addActionListener((action) => this.onAction(action));
-    this.getUserInfo();
+    await this.photoService.loadSaved();
   }
 
   ngOnDestroy() {
@@ -49,11 +48,9 @@ export class Tab4Page implements OnInit, OnDestroy{
 
   public async getUserInfo(): Promise<void> {
     this.auth.loadUserInfo();
-    this.userInfo;
   }
 
   public async refreshToken(): Promise<void> {
     this.auth.refreshToken();
   }
 }
-
